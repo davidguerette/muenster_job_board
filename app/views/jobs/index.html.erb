@@ -2,6 +2,6 @@
 
 <% @jobs.each do |job| %>
   <ul>
-    <li><%= job.title %></li>
+    <li><%= job.title %> - <%= job.company.name%> - <%= job.company.location%></li>
   </ul>
 <% end %>
