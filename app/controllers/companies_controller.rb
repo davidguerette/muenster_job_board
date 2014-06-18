@@ -21,6 +21,22 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(user_params)
+      flash[:notice] = 'Updated!'
+      redirect_to company_path(@company)
+    else
+      flash[:notice] = "Invalid"
+      render :edit
+    end
+  end
+
+
   private
 
   def user_params
