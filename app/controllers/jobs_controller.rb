@@ -10,7 +10,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    @companies = Company.a
+    @companies = Company.all
   end
 
   def create
@@ -23,6 +23,22 @@ class JobsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update(user_params)
+      flash[:notice] = "Job updated"
+      redirect_to job_path(@job)
+    else
+      flash[:notice] = "Could not be saved"
+      render :edit
+    end
+  end
+
 
   private
 
