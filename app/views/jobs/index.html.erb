@@ -2,6 +2,6 @@
 
 <% @jobs.each do |job| %>
   <ul>
-    <li><%= link_to job.title, job %> - <%= job.company.name%> - <%= job.company.location%></li>
+    <li><%= link_to job.title, job %> - <%= job.company.name%> - <%= job.company.location%> - <%= link_to "Delete", job, method: :delete %></li>
   </ul>
 <% end %>
